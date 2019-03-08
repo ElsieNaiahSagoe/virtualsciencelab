@@ -1,0 +1,278 @@
+<html>
+    <head>
+        <title>Virtual Science Lab</title>
+        <style>
+             body{
+                 background-color: #000000;
+             }   
+        </style>
+    </head>
+    <body>
+        <script src="scripts/jquery-1.11.0.min.js"></script>
+        <script src="scripts/phaser.min.js"></script>
+        <!-- <h1>SCILAB</h1> -->
+        <script>
+           var game = new Phaser.Game(1920, 1080, Phaser.CANVAS, '', { 
+               init: init,
+               preload: preload, 
+               create: create,
+               update: update,
+            });
+        
+
+
+            //init: preload: create: update ==> phaser preinstalled functions
+
+            function init(){
+
+                //RESIZING OF THE PHASER WORLD
+                this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+                this.scale.pageAlignHorizontally = true;
+                this.scale.pageAlignVertically = true;
+                this.scale.setScreenSize(true);
+            }    
+    
+            function preload() {
+                //load images
+                game.load.image('background', 'assets/images/background.png');
+                game.load.image('soundOn', 'assets/images/soundOn.png');
+                game.load.image('soundOff', 'assets/images/soundOff.png');
+                game.load.image('startBtn', 'assets/images/start.png');
+                game.load.image('chemistryBtn', 'assets/images/chemistry.png');
+                game.load.image('physicsBtn', 'assets/images/physics.png');
+                game.load.image('backBtn', 'assets/images/back.png');
+                game.load.image('chemistryBg', 'assets/images/chem_bg.png');
+                game.load.image('physicsBg', 'assets/images/phy_bg.png');
+                //load sounds
+                game.load.audio('backgroundMusic', 'assets/sounds/background.mp3');
+                game.load.audio('click', 'assets/sounds/clickOn.mp3');
+            }
+
+            function create() {
+                //adding background image
+                var background = game.add.tileSprite(0, 0, 1920, 1080, 'background');
+                 //adding physics bg image
+                 var physicsBg = game.add.sprite(0, 0,'physicsBg');
+                   //adding chemistry bg image
+                var chemistryBg = game.add.sprite(0, 0,'chemistryBg');
+
+
+
+                //adding background sound
+                var backgroundMusic = game.add.audio('backgroundMusic');
+                backgroundMusic.loopFull();
+
+                //adding sound on image
+                var soundOn = game.add.sprite(1873.50, 55,'soundOn');
+                soundOn.anchor.setTo(0.5, 0.5);
+                soundOn.inputEnabled = true;
+                soundOn.events.onInputOver.add(over, this);
+                soundOn.events.onInputOut.add(out, this);
+                soundOn.events.onInputDown.add( function () {
+                    game.add.audio('click').play();
+                    soundOff.visible = true;
+                    soundOn.visible = false;
+                    backgroundMusic.pause();
+                }, this);
+                game.world.bringToTop(soundOn);
+
+                //adding sound on image
+                var soundOff = game.add.sprite(1873.50, 55,'soundOff');
+                soundOff.anchor.setTo(0.5, 0.5);
+                soundOff.inputEnabled = true;
+                soundOff.events.onInputOver.add(over, this);
+                soundOff.events.onInputOut.add(out, this);
+                soundOff.events.onInputDown.add( function () {
+                    game.add.audio('click').play();
+                    soundOff.visible = false;
+                    soundOn.visible = true;
+                    backgroundMusic.resume();
+                }, this);
+                game.world.bringToTop(soundOff);
+
+                 //adding sound on image
+                 var backBtn = game.add.sprite(40.50, 55,'backBtn');
+                 backBtn.anchor.setTo(0.5, 0.5);
+                 backBtn.inputEnabled = true;
+                 backBtn.events.onInputOver.add(over, this);
+                 backBtn.events.onInputOut.add(out, this);
+                 backBtn.events.onInputDown.add( function () {
+                    game.add.audio('click').play();
+                    chemistryBg.visible = false;
+                    physicsBg.visible = false;
+                    backBtn.visible = false;
+                    title.text = 'SCILAB';
+                    desciption.text = 'click subject to select' 
+                    desciption.visible = true; 
+                    chemistryBtn.visible = true; 
+                    physicsBtn.visible = true; 
+                }, this);
+
+
+                //adding text (title and description)
+                var title = game.add.text(game.world.centerX, 400, 'SCILAB', { font: '120px futura', fill: '#FFFFFF'});
+                title.anchor.setTo(0.5, 0.5);
+                var desciption = game.add.text(game.world.centerX, 500, 'A virtual science lab made just for you.', { font: '70px futura', fill: '#FFFFFF'});
+                desciption.anchor.setTo(0.5, 0.5);
+
+                //adding start button
+                var startBtn = game.add.sprite(game.world.centerX, game.world.centerY + 200,'startBtn');
+                startBtn.anchor.setTo(0.5, 0.5);
+                startBtn.inputEnabled = true;
+                startBtn.events.onInputOver.add(over, this);
+                startBtn.events.onInputOut.add(out, this);
+                startBtn.events.onInputDown.add( function () {
+                    game.add.audio('click').play();
+                    title.y = 200; 
+                    desciption.y = 300;
+                    desciption.text = 'click subject to select' 
+                    startBtn.visible = false; 
+                    chemistryBtn.visible = true; 
+                    physicsBtn.visible = true; 
+                
+                }, this);
+            
+                //adding chemistry button
+                var chemistryBtn = game.add.sprite(game.world.centerX, game.world.centerY,'chemistryBtn');
+                chemistryBtn.anchor.setTo(0.5, 0.5);
+                chemistryBtn.inputEnabled = true;
+                chemistryBtn.events.onInputOver.add(over, this);
+                chemistryBtn.events.onInputOut.add(out, this);
+                chemistryBtn.events.onInputDown.add( function () {
+                    game.add.audio('click').play();
+                    chemistryBg.visible = true; 
+                    backBtn.visible = true;
+                    chemistryBtn.visible = false; 
+                    physicsBtn.visible = false; 
+                    desciption.visible = false;
+                    title.text = '';
+
+                    //LEFT SIDE MENU
+                    var sideMenu = game.add.graphics(0, 0);     
+                    sideMenu.beginFill('0xFF00FF', 1);
+                    sideMenu.drawRect(0, 0, 250, game.height);
+                    sideMenu.endFill();
+                    
+                    //BUTTOM MENU
+                    var buttonMenu = game.add.graphics(0, game.height - 200);     
+                    buttonMenu.beginFill('0x00FFFF', 1);
+                    buttonMenu.drawRect(0, 0, game.width, 300);
+                    buttonMenu.endFill();
+
+                    //RIGHT SIDE MENU
+                    var rightMenu = game.add.graphics(game.width - 400, 0);     
+                    rightMenu.beginFill('0xFFFF00', 1);
+                    rightMenu.drawRect(0, 0, 400, game.height);
+                    rightMenu.endFill();
+
+                    //TOP MENU
+                    var topMenu = game.add.graphics(0, 0);  
+                    topMenu.beginFill('0xFFFFFF', 1);
+                    topMenu.drawRect(0, 0, game.width, 50);
+                    topMenu.endFill();
+
+                    //TOP MUNU TITLE 
+                    var subtitle = game.add.text(10, 10, "Chemistry Lab:", {font: '40px futura', fill: '#000000'});
+                    topMenu.addChild(subtitle);
+
+                    //NEW BUTTON
+                    var new_ = game.add.text(subtitle.width + 50, 40, "NEW", {font: '20px futura', fill: '#000000'});
+                    topMenu.addChild(new_);
+                    new_.anchor.setTo(0.5, 0.5);
+                    new_.inputEnabled = true;
+                    new_.events.onInputOver.add(over, this);
+                    new_.events.onInputOut.add(out, this);
+                    new_.events.onInputDown.add( function () {
+                       alert("new")
+                    });
+
+                    //OPEN BUTTON
+                    var open = game.add.text(subtitle.width + 140, 40, "OPEN", {font: '20px futura', fill: '#000000'});
+                    topMenu.addChild(open);
+                    open.anchor.setTo(0.5, 0.5);
+                    open.inputEnabled = true;
+                    open.events.onInputOver.add(over, this);
+                    open.events.onInputOut.add(out, this);
+                    open.events.onInputDown.add( function () {
+                       alert("open")
+                    });
+
+                    //SAVE BUTTON
+                    var save = game.add.text(subtitle.width + 240, 40, "SAVE", {font: '20px futura', fill: '#000000'});
+                    topMenu.addChild(save);
+                    save.anchor.setTo(0.5, 0.5);
+                    save.inputEnabled = true;
+                    save.events.onInputOver.add(over, this);
+                    save.events.onInputOut.add(out, this);
+                    save.events.onInputDown.add( function () {
+                       alert("save")
+                    });
+
+                    //HELP BUTTON    
+                    var help = game.add.text(subtitle.width + 330, 40, "HELP", {font: '20px futura', fill: '#000000'});
+                    topMenu.addChild(help);
+                    help.anchor.setTo(0.5, 0.5);
+                    help.inputEnabled = true;
+                    help.events.onInputOver.add(over, this);
+                    help.events.onInputOut.add(out, this);
+                    help.events.onInputDown.add( function () {
+                       alert("help")
+                    });
+
+
+
+
+                    //LEFT MUNU TITLE 
+                    var left_title = game.add.text(10, 120, "Practicals", {font: '40px futura', fill: '#000000'});
+                    sideMenu.addChild(left_title);
+
+                
+                }, this);
+
+               
+                //adding physics button
+                var physicsBtn = game.add.sprite(game.world.centerX, game.world.centerY + 200,'physicsBtn');
+                physicsBtn.anchor.setTo(0.5, 0.5);
+                physicsBtn.inputEnabled = true;
+                physicsBtn.events.onInputOver.add(over, this);
+                physicsBtn.events.onInputOut.add(out, this);
+                physicsBtn.events.onInputDown.add( function () {
+                    game.add.audio('click').play();
+                    physicsBg.visible = true; 
+                    backBtn.visible = true;
+                    chemistryBtn.visible = false; 
+                    physicsBtn.visible = false; 
+                    desciption.visible = false;
+                    title.text = 'Physics lab';
+                
+                }, this);
+
+
+
+                //hidden sprites
+                physicsBg.visible = false;
+                chemistryBg.visible = false;
+                backBtn.visible = false;
+                soundOff.visible = false;
+                physicsBtn.visible = false;
+                chemistryBtn.visible = false;
+            }
+
+            function update() {
+              
+            }
+
+
+             function over(item) {
+                 game.add.tween(item.scale).to( { x: 1.2,y:1.2 }, 100, "Linear", true);
+             }
+
+            function out(item) {
+               game.add.tween(item.scale).to( { x: 1,y:1}, 100, "Linear", true);
+            }
+
+            
+
+        </script>
+    </body>
+</html>

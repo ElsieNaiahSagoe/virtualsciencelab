@@ -1,0 +1,185 @@
+ {
+    "chemistry": {
+         "practicals": [
+             {
+                 "title": "Simple Titration",
+                 "experiment": "Titration of Strong Acid Against Strong Base",
+                 "Aparatus": [
+                     {
+                         "name": "Beaker",
+                         "quantity": 2,
+                         "size": "50 mL"
+                     },
+                     {
+                        "name": "Burette",
+                        "quantity": 1,
+                        "size": "50 mL"
+                     },
+                     {
+                        "name": "HCl (hydrochloric acid)",
+                        "quantity": 1,
+                        "size": "1.0 M"
+                     },
+                     {
+                        "name": "NaOH (sodium hydroxide)",
+                        "quantity": 1,
+                        "size": "1.0 M"
+                     },
+                     {
+                        "name": "phenolphthalien",
+                        "quantity": "",
+                        "size": ""
+                     },
+                     {
+                        "name": "Graduated Cylinder",
+                        "quantity": 1,
+                        "size": "100 mL"
+                     },
+                     {
+                        "name": "Gloves",
+                        "quantity": "",
+                        "size": ""
+                     },
+                     {
+                        "name": "Goggles",
+                        "quantity": "",
+                        "size": ""
+                     },
+                     {
+                        "name": "Lab Coat",
+                        "quantity": "",
+                        "size": ""
+                     }
+                 ],
+                 "Instructions": [
+                     {
+                         "title": "PREPARATION",
+                         "steps": [
+                             "Put on your gloves, eye-wear, and other protective gear before you begin. ",
+                             "Make sure all your glassware is cleaned with water and dried with a paper towel.",
+                             "Label your two beakers clearly "solution" and "base".",
+                             "Set-up the burette on a stand by attaching it with a clip.",
+                             "Make sure that the stopcock's dial is horizontal."
+                         ]
+                     },
+                     {
+                         "title": "MEASURING THE CHEMICALS",
+                         "steps": [
+                            "Pour from the stock HCl bottle and fill the clean graduated cylinder to the 20 mL mark.",
+                            "Transfer the amount into the "solution" beaker.",
+                            "Clean the graduated cylinder with plenty of water.",
+                            "Pour the NaOH stock solution into the graduated cylinder to the 30 mL mark (If the glassware is unclean, it could ruin the experiment!).",
+                            "Carefully pour the 30 mL into the burette (the burette measures from top to bottom, so it should indicate 20 mL)."
+                        ]
+                     },
+                     {
+                         "title": "ADD THE INDICATOR",
+                         "steps": [
+                            "Drip two-four drops of phenolphthalein into the "solution" container (it will still be clear).",
+                            "Place the "solution" beaker underneath the burette carefully.",
+                            "",
+                            "",
+                            ""
+                        ]
+                     },
+                     {
+                         "title": "DOING THE TITRATION",
+                         "steps": [
+                            "(Optional) To improve the visibility, place the "solution" on a white surface such as a piece of paper.",
+                            "Turn the stopcock vertically to allow the sodium hydroxide to fill into the "solution" beaker (there should be a pink colour where the base goes in).",
+                            "Let the fluid go out in a steady stream until the fluid level reaches 35 mL.",
+                            "At this point, slow the stream down to a drop-by-drop speed (the solution will remain pink when it is complete).",
+                            "At 38 mL, monitor each drop and stir the beaker a little to see if a slight pink colour stays in the solution or dissipates to colourless (A darker pink colour means that the solution is saturated beyond the point of equilibrium).",
+                            "Take note of the last fluid level the burette read (it should be around 40 mL).",
+                        ]
+                     }
+                 ],
+                 "Analysis": "Now that you have done the titration, the end result should have been at 40 mL (20 mL of acid: 20 mL of base). If it was not exactly that amount, there is no need to worry. Titrations at this level have a limit to the ability for accuracy from your eyesight and perception of the endpoint, measuring inaccuracy of instruments and any other random factor."
+             }
+         ]   
+     },
+    "Physics": {
+        "practicals": [
+             {
+                 "title": "The Simple Pendulum ",
+                 "experiment": "Determining the acceleration due to gravity using the motion of simple pendulum",
+                 "Aparatus": [
+                     {
+                         "name": "Spherical pendulum bob",
+                         "quantity": 1,
+                         
+                     },
+                     {
+                        "name": "long string",
+                        "quantity": 1,
+                        
+                     },
+                     {
+                        "name": "Supporting rod (stand) and pendulum clamp",
+                        "quantity": 1,
+                        
+                     },
+                     {
+                        "name": "meter stick",
+                        "quantity": 1,
+                        
+                     },
+                     {
+                        "name": "Vernier calipers",
+                        "quantity": 1,
+                        
+                     },
+                     {
+                        "name": "Clock",
+                        "quantity": 1,
+                        
+                     },
+                     {
+                        "name": "Gloves",
+                        "quantity": 1,
+                        
+                     },
+                     {
+                        "name": "Goggles",
+                        "quantity": 1,
+                        
+                     },
+                     {
+                        "name": "Lab Coat",
+                        "quantity": 1,
+                        
+                     }
+                 ],
+                 "Instructions": [
+                     {
+                         "title": "PREPARATION",
+                         "steps": [
+                             "Put on your gloves, eye-wear, and other protective gear before you begin.",
+                             "Make sure all your glassware is cleaned with water and dried with a paper towel.",
+                             "Make sure that the stopclock's dial is horizontal."
+                         ]
+                     },
+                     {
+                         "title": "PROCEDURE",
+                         "steps": [
+                            "First, measure the diameter of the bob with the vernier calipers and convert into the radius of the bob. Record this value in your data sheet in meters.",
+                            "Clamp one end of string to a rigid support in such a way that insures that the point of suspension remain fixed throughout a complete cycles.",
+                            "Attach the other end of the string with the bob. ",
+                            "Measure the distance from the supporting point to the top of the bob, be careful not to stretch the string in measuring it. Convert this distance to meter and record it in your data sheet as the length of the string.",
+                            "Calculate the length L of the pendulum and record it in your data sheet (the length of the pendulum is the length of string plus the radius of the bob).",
+                            "Displace the bob to one side, through an angle of not more than 15°, and release it, allowing the pendulum to vibrate back and forth. On your data sheet, record the total time it takes the pendulum to make 20 vibrations. Note: The clock should be start at the zero count and stopped at the 20 counts.",
+                            "Calculate the experimental time period T of the pendulum by dividing the total time by the number of vibrations; record this value on your data sheet.",
+                            "Calculate the square of the experimental period T 2 of the pendulum and record this value on your data sheet.",
+                            "Change the length of the pendulum (L). For example, make the length of the pendulum string 60 cm, 80 cm, 100 cm, 120 cm and 140 cm.",
+                            "Repeat the Steps 5 – 8, and record all your results.",
+                            "Plot the graph as length of pendulum (L) on x-axis and square of time period (T2) on y-axis, and calculate the slope of the resulted line. Record the slope value in your data sheet.",
+                            "Use equation (7) to calculate the experimental value of g. Record this value on your data sheet.(eqn:g = 4 π 2 L / T 2)",
+                            "The standard value of g is 9.8 m/s2 .Calculate the percentage error in your experimental result and record it in your data sheet."
+
+                        ]
+                     },
+
+
+       
+    }      
+}
